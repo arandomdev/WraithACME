@@ -1,0 +1,16 @@
+services:
+  acme:
+    build: .
+    container_name: acme
+    volumes:
+      - ${CONFIG_FILE}:/home/acme/config.yaml:ro
+      - acme-data:/home/acme
+      - acme-certs:/ssl/certs
+    env_file:
+      - .env
+
+volumes:
+  acme-data:
+    name: acme-data
+  acme-certs:
+    name: acme-certs

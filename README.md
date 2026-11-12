@@ -39,15 +39,11 @@ services:
     build: .
     container_name: acme
     volumes:
-      - config.yaml:/home/acme/config.yaml:ro
+      - ${CONFIG_FILE}:/home/acme/config.yaml:ro
       - acme-data:/home/acme
       - acme-certs:/ssl/certs
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - CF_Token=abc
-      - CF_Account_ID=abc
-      - CF_Zone_ID=abc
+    env_file:
+      - .env
 
 volumes:
   acme-data:

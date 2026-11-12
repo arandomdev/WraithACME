@@ -1,1 +1,4 @@
 .vscode
+.env
+config.yaml
+compose.override.yaml

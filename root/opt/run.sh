@@ -2,7 +2,7 @@
 set -eu
 
 if [ ! -f "./renewal_crontab" ]; then
-    echo "$(shuf -i 0-59 -n 1) $(shuf -i 0-23 -n 1) * * * acme.sh --renew-all" > ./renewal_crontab
+    echo "$(shuf -i 0-59 -n 1) $(shuf -i 0-23 -n 1) * * * acme.sh --cron" > ./renewal_crontab
 fi
 
 if [ ! -d ".acme.sh" ]; then
@@ -41,6 +41,7 @@ for i in $(yq '.domains | keys[]' config.yaml); do
 
     echo "Requesting cert for ${domain}"
     acme.sh --issue \
+        --force \
         --dns "${dns}" \
         -d "${domain}" ${alts} \
         --keylength "${keylength}" \
