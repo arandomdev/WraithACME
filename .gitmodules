@@ -1,0 +1,3 @@
+[submodule "root/opt/acme/acme.sh"]
+	path = root/usr/share/acme.sh
+	url = https://github.com/acmesh-official/acme.sh.git
