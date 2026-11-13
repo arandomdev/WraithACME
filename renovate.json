@@ -19,5 +19,7 @@
             "depNameTemplate": "aptible/supercronic",
             "versioningTemplate": "semver"
         }
-    ]
+    ],
+    "automerge": true,
+    "ignoreTests": true
 }
